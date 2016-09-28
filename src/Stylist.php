@@ -7,7 +7,6 @@
 
         function __construct($name_input, $id = null) {
             $this->name = $name_input;
-            $this->$speciality = $speciality_input;
             $this->id = $id;
         }
 
@@ -16,7 +15,7 @@
         }
 
         function getName() {
-            return $name_input;
+            return $this->name;
         }
 
         function getId() {
@@ -26,7 +25,6 @@
         function getClients() {
 
         }
-
 
 
     }
