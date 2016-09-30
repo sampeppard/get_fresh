@@ -170,11 +170,22 @@
             $this->assertEquals([$test_client2, $test_client3], $result);
         }
 
-        // function test_update() {
-        //     //Arrange
-        //     //Act
-        //     //Assert
-        // }
+        function testUpdate() {
+            //Arrange
+            $name = "Hal";
+            $id = 1;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $new_name = "Jordan";
+
+            //Act
+            $test_stylist->update($new_name);
+            $result = $test_stylist->getName();
+
+            //Assert
+            $this->assertEquals("Jordan", $result);
+        }
 
         // function test_delete() {
         //     //Arrange
