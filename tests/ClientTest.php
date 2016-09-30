@@ -154,6 +154,28 @@
             $this->assertEquals("Meryl", $result);
         }
 
+        function testDelete() {
+            //Arrange
+            $name = "Naomi";
+            $stylist_id = 3;
+            $id = 1;
+            $test_client = new Client($name, $stylist_id, $id);
+            $test_client->save();
+
+            $name2 = "Jordan";
+            $stylist_id2 = 3;
+            $id2 = 2;
+            $test_client2 = new Client($name2, $stylist_id2, $id2);
+            $test_client2->save();
+
+            //Act
+            $test_client->delete();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_client2], $result);
+        }
+
     }
 
 ?>

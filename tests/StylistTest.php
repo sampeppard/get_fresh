@@ -187,11 +187,20 @@
             $this->assertEquals("Jordan", $result);
         }
 
-        // function test_delete() {
-        //     //Arrange
-        //     //Act
-        //     //Assert
-        // }
+        function testDelete() {
+            //Arrange
+            $name = "Hal";
+            $id = 1;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            //Act
+            $test_stylist->delete();
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
 
     }
 
