@@ -53,6 +53,12 @@
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $updated_stylist, "clients" => $updated_stylist->getClients()));
     });
 
+    $app->delete("/stylists/{id}", function($id) use ($app) {
+        $deleted_stylist = Stylist::find($id);
+        $deleted_stylist->delete();
+        return $app["twig"]->render("index.html.twig", array("stylists" => Stylist::getAll()));
+    });
+
     $app->post("/clients", function() use ($app) {
         $stylist_name = $_POST['name'];
         $stylist_id = $_POST['stylist_id'];
