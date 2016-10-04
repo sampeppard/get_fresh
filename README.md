@@ -32,9 +32,9 @@ An app that allows a hair salon owner to add stylists and for each stylist add a
 
 * SQL COMMANDS USED
 
-1. CREATE DATABASE salon;
+1. CREATE DATABASE hair_salon;
 
-2. USE salon;
+2. USE hair_salon;
 
 3. CREATE TABLE stylists (name VARCHAR (255), id serial PRIMARY KEY);
 

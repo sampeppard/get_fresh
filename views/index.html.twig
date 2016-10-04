@@ -18,7 +18,13 @@
                 <p>Here are all your stylists:</p>
                 <ul class="list-group">
                     {% for stylist in stylists %}
-                       <li class="list-group-item"><a href="/stylists/{{ stylist.getId }}">{{ stylist.getId }} - {{ stylist.getName }}</a></li>
+                        <li class="list-group-item">
+                            <a href="/stylists/{{ stylist.getId }}">{{ stylist.getId }} - {{ stylist.getName }}</a>
+                            |
+                            <a href="/stylists/{{ stylist.getId }}/edit">Edit</a>
+                            |
+                            <a href="/stylists/{{ stylist.getId }}/deelte">Delete</a>
+                       </li>
                     {% endfor %}
                 </ul>
             {% else %}
