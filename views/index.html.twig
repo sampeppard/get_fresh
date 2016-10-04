@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    {% include "partials/header.html" %}
+    <body>
+        <div class="container">
+            <h1>Welcome to the Get Fresh App!</h1>
+
+            <p>Create a new stylist:</p>
+
+            <form action="/stylists" method="post">
+                <label for="name">Stylist name:</label>
+                <input class="form-control" id="name" name="name" type="text">
+                <br>
+                <button class="btn btn-success" type="submit">Add stylist</button>
+            </form>
+            <br>
+            {% if stylists is not empty %}
+                <p>Here are all your stylists:</p>
+                <ul class="list-group">
+                   {% for stylist in stylists %}
+                       <li class="list-group-item"><a href="stylists/{{ stylist.getId }}">{{ stylist.getId }} - {{ stylist.getName }}</a></li>
+                   {% endfor %}
+                </ul>
+            {% else %}
+                <p>There are currently no stylists!</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
