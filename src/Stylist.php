@@ -71,7 +71,7 @@
             $stylists = Stylist::getAll();
             foreach ($stylists as $stylist) {
                 $stylist_id = $stylist->getId();
-                if ($stylist_id = $search_id) {
+                if ($stylist_id == $search_id) {
                     $found_stylist = $stylist;
                 }
             }
