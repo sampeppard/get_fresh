@@ -19,7 +19,7 @@
                 <ul class="list-group">
                     {% for stylist in stylists %}
                         <li class="list-group-item">
-                            <a href="/stylists/{{ stylist.getId }}">{{ stylist.getId }} - {{ stylist.getName }}</a>
+                            <a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a>
                             |
                             <a href="/stylists/{{ stylist.getId }}/edit">Edit</a>
                        </li>
@@ -30,9 +30,13 @@
             {% endif %}
 
             <br>
-            <form action="/delete_all" method="post">
-                <button class="btn btn-danger" type="submit">Delete all stylists</button>
-            </form>
+            {% if stylists is not empty %}
+                <form action="/delete_all" method="post">
+                    <input name="_method" type="hidden" value="delete">
+
+                    <button class="btn btn-danger" type="submit">Delete all stylists</button>
+                </form>
+            {% endif %}
         </div>
     </body>
 </html>

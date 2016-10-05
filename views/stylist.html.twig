@@ -9,7 +9,9 @@
             {% if clients is not empty %}
                 <ul class="list-group">
                     {% for client in clients %}
-                    <li class="list-group-item">{{ client.getName }}</li>
+                    <li class="list-group-item">
+                        {{ client.getName }} | <a href="/{{ stylist.getId }}/clients/{{ client.getId }}/edit">Edit</a>
+                    </li>
                     {% endfor %}
                 </ul>
             {% endif %}

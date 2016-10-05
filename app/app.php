@@ -31,10 +31,12 @@
         return $app["twig"]->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
-    $app->post("/delete_all", function() use ($app) {
+    $app->delete("/delete_all", function() use ($app) {
         Stylist::deleteAll();
         return $app["twig"]->render("delete_all.html.twig");
     });
+
+    /*---------------Stylist----------------*/
 
     $app->get("/stylists/{id}", function($id) use ($app) {
         $selected_stylist = Stylist::find($id);
@@ -59,6 +61,8 @@
         return $app["twig"]->render("index.html.twig", array("stylists" => Stylist::getAll()));
     });
 
+    /*------------Clients-------------*/
+
     $app->post("/clients", function() use ($app) {
         $stylist_name = $_POST['name'];
         $stylist_id = $_POST['stylist_id'];
@@ -66,6 +70,27 @@
         $client->save();
         $stylist = Stylist::find($stylist_id);
         return $app["twig"]->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->get("{id}/clients/{c_id}/edit", function($id, $c_id) use ($app) {
+        $stylist = Stylist::find($id);
+        $selected_client = Client::find($c_id);
+        return $app["twig"]->render("edit_client.html.twig", array("client" => $selected_client, "stylist" => $stylist));
+    });
+
+    $app->patch("{id}/clients/{c_id}", function($id, $c_id) use ($app) {
+        $new_c_name = $_POST["c_name"];
+        $stylist = Stylist::find($id);
+        $updated_client = Client::find($c_id);
+        $updated_client->update($new_c_name);
+        return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->delete("{id}/clients/{c_id}", function($id, $c_id) use ($app) {
+        $stylist = Stylist::find($id);
+        $deleted_client = Client::find($c_id);
+        $deleted_client->delete();
+        return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
     return $app;

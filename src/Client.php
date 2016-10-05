@@ -70,7 +70,7 @@
             $clients = Client::getAll();
             foreach ($clients as $client) {
                 $client_id = $client->getId();
-                if ($client_id = $search_id) {
+                if ($client_id == $search_id) {
                     $found_client = $client;
                 }
             }

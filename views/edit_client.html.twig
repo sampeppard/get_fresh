@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    {% include "partials/header.html" %}
+    <body>
+        <div class="container">
+            <h1>Update client | {{ client.getName }}</h1>
+
+            <form action="/{{ stylist.getId }}/clients/{{ client.getId }}" method="post">
+                <input name="_method" type="hidden" value="patch">
+
+                <label for="c_name">Rename client</label>
+                <input id="c_name" class="form-control" name="c_name" type="text">
+
+                <br>
+                <button class="btn btn-success" type="submit">Update</button>
+            </form>
+            <br>
+            <form action="/{{ stylist.getId }}/clients/{{ client.getId }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button class="btn btn-danger" type="submit">Delete this client</button>
+            </form>
+
+            <br>
+            <p><a href="/">Home</a></p>
+        </div>
+    </body>
+</html>
