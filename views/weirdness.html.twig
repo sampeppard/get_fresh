@@ -1,0 +1,44 @@
+<html>
+    {% include "partials/header.html" %}
+    <body>
+        <div class="container">
+            <h1>Update client | {{ client.getName }}</h1>
+
+
+            {% if test %}
+            <h1>{{ test }}</h1>
+            <h2>{{ client.getId }}</h2>
+            <h2>{{ stylist.getId }}</h2>
+            <h3>{{ stylist_id }}</h3>
+            <h3>{{ client_id }}</h3>
+            {% endif %}
+
+            <!-- DOES NOT WORK -->
+            <form action="/{{ stylist.getId }}/broken/{{ client.getId }}" method="post">
+                <input class="form-control" name="client_id" value="{{ client.getId }}" type="hidden">
+                <input class="form-control" name="stylist_id" value="{{ stylist.getId }}" type="hidden">
+
+                <button class="btn btn-success" type="submit">What</button>
+            </form>
+
+
+
+
+            <!-- WORKS -->
+            <form action="/weird1" method="post">
+                <input class="form-control" name="client_id" value="{{ client.getId }}" type="hidden">
+                <input class="form-control" name="stylist_id" value="{{ stylist.getId }}" type="hidden">
+
+                <button class="btn btn-success" type="submit">Weird1</button>
+            </form>
+
+
+
+            <!-- WORKS -->
+            <form action="/{{ stylist.getId }}/weird2/{{ client.getId }}" method="post">
+                <button class="btn btn-success" type="submit">Weird2</button>
+            </form>
+
+        </div>
+    </body>
+</html>

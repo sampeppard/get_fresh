@@ -93,6 +93,60 @@
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
+
+
+
+
+// WEIRDNESS
+
+
+    $app->post("{stylist_id}/broken/{client_id}", function($stylist_id, $client_id) use($app) {
+
+        // print("\nroute variables:\n");
+        // var_dump($stylist_id);
+        // print("\n");
+        // var_dump($client_id);
+        // print("\n");
+
+
+        $client_post_id = $_POST["client_id"];
+        $stylist_post_id = $_POST["stylist_id"];
+
+        $stylist = Stylist::find($stylist_post_id);
+        $client = Client::find($client_post_id);
+
+        $test = "WHAT?";
+
+        return $app["twig"]->render("weirdness.html.twig", array("stylist" => $stylist, "client" => $client, "test" => $test, "client_id" => $client_id, "stylist_id" => $stylist_id));
+
+    });
+
+
+    $app->post("weird1", function() use($app){
+        $client_id = $_POST["client_id"];
+        $stylist_id = $_POST["stylist_id"];
+
+        $stylist = Stylist::find($stylist_id);
+        $client = Client::find($client_id);
+
+        $test = "SHOULD WORK";
+
+        return $app["twig"]->render("weirdness.html.twig", array("stylist" => $stylist, "client" => $client, "test" => $test, "client_id" => $client_id, "stylist_id" => $stylist_id));
+    });
+
+
+    $app->post("{stylist_id}/weird2/{client_id}", function($stylist_id, $client_id) use($app) {
+
+        $stylist = Stylist::find($stylist_id);
+        $client = Client::find($client_id);
+
+        $test = "SHOULD ALSO WORK";
+
+        return $app["twig"]->render("weirdness.html.twig", array("stylist" => $stylist, "client" => $client, "test" => $test, "client_id" => $client_id, "stylist_id" => $stylist_id));
+
+    });
+
+
     return $app;
 
 ?>
