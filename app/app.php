@@ -9,6 +9,8 @@
     require_once __DIR__."/../src/Stylist.php";
     require_once __DIR__."/../src/Client.php";
 
+    date_default_timezone_set('America/New_York');
+
     $server = "mysql:host=localhost:8889;dbname=hair_salon";
     $username = "root";
     $password = "root";
@@ -91,6 +93,10 @@
         $deleted_client = Client::find($c_id);
         $deleted_client->delete();
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
+    });
+
+    $app->get("/", function() use ($app) {
+        return $app["twig"]->render("index.html.twig");
     });
 
     return $app;
