@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-    {% include "partials/header.html" %}
+    {% include "partials/head.html" %}
     <body>
+        {% include "partials/header.html" %}
         <div class="container">
 
             <h1>{{ stylist.getName }}</h1>
@@ -31,5 +32,6 @@
             <h5><a href="/">Home</a></h5>
 
         </div>
+        {% include "partials/footer.html" %}
     </body>
 </html>

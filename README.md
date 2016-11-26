@@ -1,34 +1,37 @@
-# Hair Salon APP
+# **GET FRESH**
 
-### By **Samuel Peppard**
+##### A project built using Silex, Twig and MySQL. 9.18.2016
+#
+##### By [Sam Peppard](https://github.com/sampeppard)
+#
+![screenshot of project main page](web/images/demo-screenshot.jpg)
 
-## Description
+----
+### **Description**
 
 An app that allows a hair salon owner to add stylists and for each stylist add a list of clients.
 
-## Specifications
+----
+### **Specifications**
+| _Behavior_ | _Input_ | _Output_ |
+|:---------------------------------------------------------------------:|:---------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------:|
+| 1. Return the listed stylist when a stylist name is entered | Matthew | 1. Matthew |
+| 2. Return the listed clients when the client's name and assigned stylist is entered. | Matthew | 1. Bobby, stylist - Matthew |
+| 3. Delete the stylists when the delete stylists button is pressed | delete | All stylists deleted |
+| 4. Delete the stylists when the delete stylists button is pressed | delete | All clients deleted |
+----
 
-#### 1. Return the listed stylist when a stylist name is entered
+### **Setup/Installation Requirements**
 
-* Example Input: Matthew
-* Example Output: 1. Matthew
+If editing or running locally:
 
-#### 2. Return the listed clients when the client's name and assigned stylist is entered.
+* Clone this repository
+* If editing, open project directory in Code Editor of choice
+* If viewing, open your command prompt, type composer install, enter php -S localhost:8000 and type localhost:8000 in your browser address bar to view the application
+* Open your browser of choice and go to localhost:8000/phpmyadmin
+* Once in PHPmyAdmin, go to import tab and choose the database file db_backup.sql.zip and click Go
 
-* Example Input: Bobby, stylist - Matthew
-* Example Output: 1. Bobby, stylist - Matthew
-
-#### 3. Delete the stylists when the delete stylists button is pressed
-
-* Example Input: delete
-* Example Output: All stylists deleted
-
-#### 4. Delete the clients when the delete clients button is pressed
-
-* Example Input: delete
-* Example Output: All clients deleted
-
-## Setup/Installation Requirements
+##Or you can set up the database with SQL commands
 
 * SQL COMMANDS USED
 
@@ -39,20 +42,19 @@ An app that allows a hair salon owner to add stylists and for each stylist add a
 3. CREATE TABLE stylists (name VARCHAR (255), id serial PRIMARY KEY);
 
 4. CREATE TABLE clients (name VARCHAR (255), stylist_id INT, id serial PRIMARY KEY);
+----
 
-* Clone this repository
-* If editing, open project directory in Code Editor of choice
-* If viewing, open your command prompt, type composer install, enter php -S localhost:8000 and type localhost:8000 in your browser address bar to view the application
-
-## Known Bugs
+### **Known Bugs**
 
 No known bugs.
 
-## Support and contact details
+----
+### **Support and contact details**
 
 For comments or questions, please email sampeppard@gmail.com
 
-## Technologies Used
+----
+### **Technologies Used**
 
 HTML
 CSS
@@ -63,7 +65,8 @@ Silex
 Twig
 Bootstrap version 3.3.7.
 
-### License
+----
+### **License**
 
 *This application is licensed under the MIT license*
 
