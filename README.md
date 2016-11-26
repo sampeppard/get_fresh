@@ -15,10 +15,10 @@ An app that allows a hair salon owner to add stylists and for each stylist add a
 ### **Specifications**
 | _Behavior_ | _Input_ | _Output_ |
 |:---------------------------------------------------------------------:|:---------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------:|
-| 1. Return the listed stylist when a stylist name is entered | Matthew | 1. Matthew |
-| 2. Return the listed clients when the client's name and assigned stylist is entered. | Matthew | 1. Bobby, stylist - Matthew |
-| 3. Delete the stylists when the delete stylists button is pressed | delete | All stylists deleted |
-| 4. Delete the stylists when the delete stylists button is pressed | delete | All clients deleted |
+| Return the listed stylist when a stylist name is entered | Matthew | 1. Matthew |
+| Return the listed clients when the client's name and assigned stylist is entered. | Matthew | 1. Bobby, stylist - Matthew |
+| Delete the stylists when the delete stylists button is pressed | delete | All stylists deleted |
+| Delete the stylists when the delete stylists button is pressed | delete | All clients deleted |
 ----
 
 ### **Setup/Installation Requirements**
